@@ -5,48 +5,44 @@ package boletin5;
  *
  * @author cfigueirasvalverde
  */
-class Conta {
+public class Cuenta {
 private String nome;
-    private String numConta;
+    private String numCuenta;
     private double saldo;
 
-    //constructores
-    public Conta() {
+    public Cuenta() {
     }
 
-    public Conta(String nome, String numConta, double saldo) {
+    public Cuenta(String nome, String numCuenta, double saldo) {
         this.nome = nome;
-        this.numConta = numConta;
+        this.numCuenta = numCuenta;
         this.saldo = saldo;
     }
 
-    //setters
     public void setNome(String nome) {
         this.nome = nome;
     }
 
     public void setNumConta(String numConta) {
-        this.numConta = numConta;
+        this.numCuenta = numCuenta;
     }
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    //getters
     public String getNome() {
         return this.nome;
     }
 
-    public String getNumConta() {
-        return this.numConta;
+    public String getNumCuenta() {
+        return this.numCuenta;
     }
 
     public double getSaldo() {
         return this.saldo;
     }
 
-    //Outros metodos(ingreso,reintegro,visualizar y transferencia)
     public boolean ingreso(double cantidad) {
         if (cantidad > 0) {
             this.saldo = this.saldo + cantidad;
@@ -60,7 +56,6 @@ private String nome;
         }
 
     }
-
     public boolean reintegro(double cantidad) {
         if (this.saldo - cantidad < 0) {
             System.out.println("No hay saldo suficiente");
@@ -77,25 +72,23 @@ private String nome;
         }
 
     }
-
     public void visualizar() {
         System.out.println("\nNome: " + this.nome);
-        System.out.println("Numero de conta: " + this.numConta);
+        System.out.println("Numero de cuenta: " + this.numCuenta);
         System.out.println("Saldo: " + this.saldo + " Euros");
     }
 
-    public boolean transferencia(Conta origen, double importe) {
+    public boolean transferencia(Cuenta origen, double importe) {
         if (importe <= 0) {
             System.out.println("No se puede hacer la transferencia");
             return false;
-        } else if (origen.getSaldo() - importe >= 0) {
+       } else if (origen.getSaldo() - importe >= 0) {
             this.ingreso(importe);
             origen.reintegro(importe);
             return true;
-        } else {
+       } else {
             System.out.println("No hay saldo suficiente");
             return false;
         }
     }
-
 }
