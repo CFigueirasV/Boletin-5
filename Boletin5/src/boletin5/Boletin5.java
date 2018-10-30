@@ -1,8 +1,6 @@
-
 package boletin5;
 
 import java.util.Scanner;
-
 /**
  *
  * @author cfigueirasvalverde
@@ -47,6 +45,5 @@ public static void main(String[] args) {
         }
         cuentaOrigen.visualizar();
         cuentaDestino.visualizar();
-
     }
 }
